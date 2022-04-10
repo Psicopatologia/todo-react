@@ -1,0 +1,12 @@
+
+.todo-counter, .todo-title {
+    text-align: center;
+    margin: 0;
+
+}
+
+.todo-counter {
+    opacity: 0.8;
+    font-size: 1.1em;
+    margin-bottom: 1em;
+}

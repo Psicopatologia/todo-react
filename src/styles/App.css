@@ -1,0 +1,14 @@
+:root {
+    --background: #FFF7BC;
+    --text: #363732;
+}
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--text);
+}
+
+html {
+    padding: 1em;
+    background-color: var(--background);
+}

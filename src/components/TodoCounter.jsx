@@ -1,8 +1,12 @@
 import React from "react";
+import '../styles/TodoCounter.css'
 
-function TodoCounter() {
+function TodoCounter(props) {
     return (
-        <h2>Has completado todo</h2>
+        <React.Fragment>
+            <h1 className="todo-title">Welcome Back</h1>
+            <h2 className="todo-counter">You have completed {props.completedTasks} out of {props.totalTasks} tasks </h2>
+        </React.Fragment>
     );
 }
 
