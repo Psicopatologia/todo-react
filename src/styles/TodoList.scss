@@ -1,0 +1,13 @@
+@import 'vars';
+
+.todo-list {
+    height: 60vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul {
+    list-style:none;
+}

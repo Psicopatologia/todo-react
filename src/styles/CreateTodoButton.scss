@@ -1,0 +1,15 @@
+@import 'vars';
+
+.create-task {
+    background-color: $green;
+    width: 4em;
+    height: 4em;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+}
+
+.create-task svg {
+    width: 3.5em;
+    stroke-width: 10px;
+}

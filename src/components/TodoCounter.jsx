@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/TodoCounter.css'
+import '../styles/TodoCounter.scss'
 
 function TodoCounter(props) {
     return (

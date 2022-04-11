@@ -4,7 +4,7 @@ import { TodoSearch } from './components/TodoSearch';
 import { TodoList } from './components/TodoList';
 import { TodoItem } from './components/TodoItem';
 import { CreateTodoButton } from './components/CreateTodoButton';
-import './styles/App.css';
+import './styles/App.scss';
 
 const todos = [
   {text: "Comer", completed: false},
@@ -21,7 +21,7 @@ function App(props) {
       
      <TodoList>
         { todos.map(todo => (
-          <TodoItem key={todo.text} text={todo.text}/>
+          <TodoItem key={todo.text} text={todo.text} check={todo.completed} />
       ))}
       </TodoList>
       <CreateTodoButton />

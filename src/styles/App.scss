@@ -1,0 +1,12 @@
+@import 'vars';
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: $text;
+    text-align: center;
+}
+
+html {
+    padding: 1em;
+    background-color: $background;
+}
