@@ -1,17 +1,21 @@
 import React from 'react';
 import { AppUI } from './AppUi';
 
-const defaultTodos = [
-  { text: "Comer", completed: false },
-  { text: "Dormir", completed: false },
-  { text: "Bailar", completed: false },
-  { text: "Contar", completed: true },
-]
-
 function App(props) {
-  const [todos, setTodos] = React.useState(defaultTodos)
+  const localStorageTodos = localStorage.getItem('TODOS_V1');
+  let parsedTodos;
+
+  if (!localStorageTodos) {
+    localStorage.setItem('TODOS_V1', JSON.stringify([]))
+    parsedTodos = [];
+  } else {
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
+
+  const [todos, setTodos] = React.useState(parsedTodos)
   const [searchText, setSearchText] = React.useState('');
   let searchedTodos = [];
+  
   if (searchText.length < 1) {
     searchedTodos = todos;
   } else {
@@ -21,19 +25,26 @@ function App(props) {
       return todoText.includes(searchValue);
     })
   }
+  
   const totalTasks = todos.length;
   const completedTasks = todos.filter(task => task.completed).length;
+
+  const saveTodos = (newTodos) => {
+    const stringTodos = JSON.stringify(newTodos);
+    localStorage.setItem('TODOS_V1', stringTodos);
+    setTodos(newTodos);
+  }
 
   const onComplete = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
     const tempTodos = [...todos];
     tempTodos[todoIndex].completed = true;
-    setTodos(tempTodos);
+    saveTodos(tempTodos);
   }
 
   const onDelete = (text) => {
     const tempTodos = todos.filter(todo => todo.text !== text);
-    setTodos(tempTodos);
+    saveTodos(tempTodos);
   }
 
   return (
