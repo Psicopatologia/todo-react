@@ -1,7 +1,9 @@
 import React from "react";
+import { TodoContext } from "../context/TodoContext";
 import '../styles/TodoCounter.scss'
 
-function TodoCounter({completedTasks, totalTasks}) {
+function TodoCounter() {
+    const {totalTasks, completedTasks} = React.useContext(TodoContext)
     return (
         <React.Fragment>
             <h1 className="todo-title">Welcome Back</h1>
