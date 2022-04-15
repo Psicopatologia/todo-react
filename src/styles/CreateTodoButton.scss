@@ -6,10 +6,22 @@
     height: 4em;
     padding: 0;
     border: none;
-    border-radius: 50%;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: calc(50% - 4em);
+    transition: .5s;
 }
 
 .create-task svg {
     width: 3.5em;
     stroke-width: 10px;
+}
+
+.rotated {
+    background-color: $red;
+    z-index: 1000;
+    transform: rotate(45deg);
 }
