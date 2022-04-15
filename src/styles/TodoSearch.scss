@@ -5,6 +5,7 @@
     width: 60%;
     padding: .5em;
     font-size: 1em;
-    background-color: rgba($light-blue, 0.4);
+    background-color: rgba($light-blue, .8);
     font-weight: bold;
+    border: $text 2px inset;
 }

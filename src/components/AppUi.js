@@ -7,6 +7,7 @@ import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
 import { Modal } from './Modal';
 import { TodoForm } from './TodoForm';
+import { Loading } from './Loading';
 
 function AppUI() {
     const {
@@ -25,7 +26,7 @@ function AppUI() {
 
             <TodoList>
                 {error && <p>Error :(</p>}
-                {loading && <p>Loading...</p>}
+                {loading && <Loading />}
                 {!loading && !searchedTodos.length && <p>Add your first todo</p>}
 
 
