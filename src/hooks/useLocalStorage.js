@@ -28,6 +28,7 @@ function useLocalStorage(itemName, initialValue) {
 
     const saveItem = (newItem) => {
         try {
+            newItem.sort(todo => todo.completed ? 1 : -1);
             const stringItem = JSON.stringify(newItem);
             localStorage.setItem(itemName, stringItem);
             setItem(newItem);
