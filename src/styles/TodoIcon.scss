@@ -1,0 +1,14 @@
+@import 'vars';
+
+.icon-container {
+    width: 2em;
+}
+
+.icon-container--Delete {
+    fill: $red;
+}
+
+.icon-container--Add {
+    width: 3.5em;
+    stroke-width: 10px;
+}

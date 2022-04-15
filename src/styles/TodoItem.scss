@@ -10,16 +10,6 @@
     align-items: center;
 }
 
-.todo-item button {
-    background: none;
-    border: none;
-    stroke: $red;
-    float: right;
-}
-
-.todo-item svg {
-    width: 2em;
-}
 .todo-item svg:hover {
     transform: scale(1.1);
 }
