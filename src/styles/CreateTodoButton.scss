@@ -7,8 +7,9 @@
     padding: 0;
     border: none;
     border-radius: 100%;
-    position: absolute;
-    left: calc(50% - 4em);
+    position: fixed;
+    left: calc(50% - 2em);
+    bottom: 1em;
     transition: .5s;
 }
 
