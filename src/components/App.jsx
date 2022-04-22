@@ -1,5 +1,5 @@
 import React from 'react';
-import { TodoContext } from '../context/TodoContext';
+import { useTodos } from '../hooks/useTodos';
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
 import { TodoList } from './TodoList';
@@ -8,8 +8,9 @@ import { CreateTodoButton } from './CreateTodoButton';
 import { Modal } from './Modal';
 import { TodoForm } from './TodoForm';
 import { Loading } from './Loading';
+import { TodoHeader } from './TodoHeader'
 
-function AppUI() {
+function App(props) {
     const {
         error,
         loading,
@@ -17,13 +18,25 @@ function AppUI() {
         completeTodo,
         deleteTodo,
         openModal,
-        setOpenModal
-    } = React.useContext(TodoContext)
+        setOpenModal,
+        totalTasks,
+        completedTasks,
+        searchText,
+        setSearchText,
+        addTodo
+    } = useTodos()
     return (
         <React.Fragment>
-            <TodoCounter />
-            <TodoSearch />
-
+            <TodoHeader>
+                <TodoCounter
+                    totalTasks={totalTasks}
+                    completedTasks={completedTasks}
+                />
+                <TodoSearch
+                    searchText={searchText}
+                    setSearchText={setSearchText}
+                />
+            </TodoHeader>
             <TodoList>
                 {error && <p>Error :(</p>}
                 {loading && <Loading />}
@@ -42,15 +55,15 @@ function AppUI() {
             </TodoList>
             {openModal && (
                 <Modal>
-                    <TodoForm />
+                    <TodoForm addTodo={addTodo} />
                 </Modal>
             )}
             <CreateTodoButton
-                setOpenModal = {setOpenModal}
-                openModal = {openModal}
+                setOpenModal={setOpenModal}
+                openModal={openModal}
             />
         </React.Fragment>
-    )
+    );
 }
 
-export { AppUI }
+export default App;

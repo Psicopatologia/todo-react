@@ -1,13 +1,9 @@
 import React from "react";
-import { TodoContext } from "../context/TodoContext";
 import '../styles/TodoForm.scss'
 
-function TodoForm() {
+function TodoForm( {addTodo} ) {
     const inputText = React.useRef(null);
     const [newTodoValue, setNewTodoValue] = React.useState('');
-    const {
-        addTodo,
-    } = React.useContext(TodoContext);
 
     const onSubmit = (event) => {
         event.preventDefault();
