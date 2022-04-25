@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/Loading.scss'
 
-function Loading() {
+function TodoLoading() {
     return (
         <div className="loader">
             <div></div>
@@ -11,4 +11,4 @@ function Loading() {
     )
 }
 
-export { Loading };
+export { TodoLoading };

@@ -11,6 +11,7 @@ import { TodoLoading } from './TodoLoading';
 import { TodoHeader } from './TodoHeader';
 import { TodosError } from './TodosError';
 import { EmptyTodos } from './EmptyTodos';
+import { EmptySearchResults } from './EmptySearchResults';
 
 function App(props) {
     const {
@@ -39,13 +40,19 @@ function App(props) {
                     setSearchText={setSearchText}
                 />
             </TodoHeader>
-            <TodoList>
-                {error && <TodosError />}
-                {loading && <TodoLoading />}
-                {!loading && !searchedTodos.length && <EmptyTodos />}
+            <TodoList
+                error={error}
+                loading={loading}
+                searchedTodos={searchedTodos}
+                totalTasks={totalTasks}
 
-
-                {searchedTodos.map(todo => (
+                onError={() => <TodosError />}
+                onLoading={() => <TodoLoading />}
+                onEmptyTodos={() => <EmptyTodos />}
+                onEmptySearchResults={() =>
+                    <EmptySearchResults searchText={searchText} />
+                }
+                /*render={todo => (
                     <TodoItem
                         key={todo.text}
                         text={todo.text}
@@ -53,7 +60,18 @@ function App(props) {
                         completeTodo={() => completeTodo(todo.text)}
                         deleteTodo={() => deleteTodo(todo.text)}
                     />
-                ))}
+                )
+                }*/
+            >
+                {todo => (
+                    <TodoItem
+                        key={todo.text}
+                        text={todo.text}
+                        check={todo.completed}
+                        completeTodo={() => completeTodo(todo.text)}
+                        deleteTodo={() => deleteTodo(todo.text)}
+                    />
+                )}
             </TodoList>
             {openModal && (
                 <Modal>
