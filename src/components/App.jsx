@@ -7,8 +7,10 @@ import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
 import { Modal } from './Modal';
 import { TodoForm } from './TodoForm';
-import { Loading } from './Loading';
-import { TodoHeader } from './TodoHeader'
+import { TodoLoading } from './TodoLoading';
+import { TodoHeader } from './TodoHeader';
+import { TodosError } from './TodosError';
+import { EmptyTodos } from './EmptyTodos';
 
 function App(props) {
     const {
@@ -38,9 +40,9 @@ function App(props) {
                 />
             </TodoHeader>
             <TodoList>
-                {error && <p>Error :(</p>}
-                {loading && <Loading />}
-                {!loading && !searchedTodos.length && <p>Add your first todo</p>}
+                {error && <TodosError />}
+                {loading && <TodoLoading />}
+                {!loading && !searchedTodos.length && <EmptyTodos />}
 
 
                 {searchedTodos.map(todo => (
