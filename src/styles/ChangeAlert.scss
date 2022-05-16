@@ -1,0 +1,36 @@
+@import 'vars';
+
+.updateButton {
+    background-color:rgba( #000000, 0);
+    padding: 0;
+    border: none;
+    position: fixed;
+    right: 2em;
+    bottom: 24px;
+    display: flex;
+    align-items: center;
+    animation: scale 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.updateButton svg {
+    border-radius: 100%;
+    background-color: $blue;
+    width: 4em;
+    height: 4em;
+    
+}
+.updateAlert {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#000000, 0);
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1.5);
+    }
+    100% {transform: scale(1);}
+}

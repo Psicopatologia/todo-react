@@ -14,9 +14,10 @@ function TodoList(props) {
                 props.onEmptySearchResults())
             }
             {/* props.render || props.children */}
-            {props.render ?
+            {(!props.loading && !props.error) &&
+                (props.render ?
                 props.searchedTodos.map(props.render):
-                props.searchedTodos.map(props.children)}
+                props.searchedTodos.map(props.children))}
             <ul>
                 {props.children}
             </ul>
